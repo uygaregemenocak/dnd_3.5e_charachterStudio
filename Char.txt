@@ -1,0 +1,75 @@
+Character Name: L
+Class: Wizard
+Level: 18
+
+Race: _______________________
+Alignment: _______________________
+
+Ability Scores:
+- Strength: ____
+- Dexterity: ____
+- Constitution: ____
+- Intelligence: ____
+- Wisdom: ____
+- Charisma: ____
+
+Hit Points: ____
+Armor Class: ____
+Initiative: ____
+Speed: ____
+
+Saving Throws:
+- Fortitude: ____
+- Reflex: ____
+- Will: ____
+
+Skills:
+- Concentration: ____
+- Spellcraft: ____
+- Knowledge (Arcana): ____
+- Knowledge (____): ____
+- Knowledge (____): ____
+- Knowledge (____): ____
+
+Feats:
+- _______________
+- _______________
+- _______________
+
+Spells Per Day:
+- Level 0: ____
+- Level 1: ____
+- Level 2: ____
+- Level 3: ____
+- Level 4: ____
+- Level 5: ____
+- Level 6: ____
+- Level 7: ____
+- Level 8: ____
+- Level 9: ____
+
+Spellbook:
+- Level 0: _______________
+- Level 1: _______________
+- Level 2: _______________
+- Level 3: _______________
+- Level 4: _______________
+- Level 5: _______________
+- Level 6: _______________
+- Level 7: _______________
+- Level 8: _______________
+- Level 9: _______________
+
+Equipment:
+- _______________
+- _______________
+- _______________
+
+Background:
+____________________________________________________________________________________
+
+Personality Traits:
+____________________________________________________________________________________
+
+Appearance:
+____________________________________________________________________________________

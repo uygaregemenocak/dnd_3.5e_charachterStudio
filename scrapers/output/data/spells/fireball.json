@@ -1,0 +1,25 @@
+{
+  "id": "fireball",
+  "name": "Fireball",
+  "school": "evocation",
+  "descriptor": ["fire"],
+  "levels": [
+    {
+      "level": 3,
+      "classes": ["wizard", "sorcerer"]
+    }
+  ],
+  "components": ["V", "S", "M"],
+  "casting_time": "1 standard action",
+  "range": "long",
+  "area": "20-ft. radius spread",
+  "duration": "instantaneous",
+  "saving_throw": {
+    "type": "reflex",
+    "result": "half"
+  },
+  "spell_resistance": true,
+  "description": "A powerful burst of flame deals 1d6 per caster level (max 10d6).",
+  "material_component": "A tiny ball of bat guano and sulfur",
+  "source": "PHB"
+}

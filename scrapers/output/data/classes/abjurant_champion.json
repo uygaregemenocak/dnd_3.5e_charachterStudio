@@ -1,0 +1,51 @@
+{
+  "id": "abjurant_champion",
+  "name": "Abjurant Champion",
+  "type": "prestige",
+  "source": "Complete Mage",
+  "hit_die": 10,
+  "skill_points_per_level": 2,
+  "class_skills": [
+    "concentration",
+    "knowledge_arcana",
+    "profession",
+    "spellcraft"
+  ],
+  "progression": {
+    "bab": "good",
+    "saves": {
+      "fortitude": "good",
+      "reflex": "poor",
+      "will": "poor"
+    },
+    "levels": [
+      {
+        "level": 1,
+        "bab": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 2,
+        "spells_per_day": null,
+        "features": ["abjurant_armor", "extended_abjuration"]
+      }
+    ],
+    "spellcasting_progression": "major"
+  },
+  "spellcasting": {
+    "type": "prepared",
+    "ability": "intelligence",
+    "spell_list": "wizard",
+    "spellbook_required": true,
+    "cantrips_known": 0,
+    "extra_prepared": null
+  },
+  "prerequisites": {
+    "bab": 5,
+    "feats": ["combat_casting"],
+    "spellcasting": {
+      "level": 1,
+      "type": "arcane"
+    },
+    "special": "Proficient with martial weapons"
+  }
+}

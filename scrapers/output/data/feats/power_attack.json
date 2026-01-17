@@ -1,0 +1,18 @@
+{
+  "id": "power_attack",
+  "name": "Power Attack",
+  "source": "PHB",
+  "description": "You can subtract from melee attack rolls and add to melee damage rolls. Multiplied on two-handed weapons.",
+  "type": "combat",
+  "prerequisites": {
+    "abilities": {
+      "str": 13
+    },
+    "skills": [],
+    "feats": [],
+    "other": []
+  },
+  "benefit": "Subtract from attack bonus and add to damage (×1.5 for two-handed).",
+  "special": "A fighter may treat this as a fighter bonus feat.",
+  "tags": ["combat", "melee", "fighter_bonus"]
+}

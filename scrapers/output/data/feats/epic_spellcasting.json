@@ -1,0 +1,29 @@
+{
+  "id": "epic_spellcasting",
+  "name": "Epic Spellcasting",
+  "source": "DMG",
+  "description": "Cast and develop epic spells if you meet the rigorous requirements.",
+  "type": "epic",
+  "prerequisites": {
+    "abilities": {},
+    "skills": [
+      {
+        "skill": "knowledge_arcana",
+        "ranks": 24
+      },
+      {
+        "skill": "spellcraft",
+        "ranks": 24
+      }
+    ],
+    "feats": [],
+    "spellcasting": {
+      "level": 9,
+      "type": "arcane"
+    },
+    "other": ["Ability to cast 9th-level arcane spells"]
+  },
+  "benefit": "You may develop and cast epic spells.",
+  "special": null,
+  "tags": ["epic", "spellcasting"]
+}

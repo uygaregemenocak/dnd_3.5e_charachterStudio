@@ -1,0 +1,7 @@
+fastapi==0.112.0
+uvicorn==0.24.0
+sqlalchemy==2.0.18
+asyncpg==0.27.1
+pydantic==2.5.1
+python-jose==3.3.0
+passlib[bcrypt]==1.7.4

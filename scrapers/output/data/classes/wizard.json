@@ -1,0 +1,54 @@
+{
+  "id": "wizard",
+  "name": "Wizard",
+  "type": "base",
+  "source": "PHB",
+  "hit_die": 4,
+  "skill_points_per_level": 2,
+  "class_skills": [
+    "concentration",
+    "craft",
+    "decipher_script",
+    "knowledge_arcana",
+    "knowledge_architecture",
+    "profession",
+    "spellcraft"
+  ],
+  "progression": {
+    "bab": "poor",
+    "saves": {
+      "fortitude": "poor",
+      "reflex": "poor",
+      "will": "good"
+    },
+    "levels": [
+      {
+        "level": 1,
+        "bab": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "spells_per_day": [3, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        "features": ["scribe_scroll", "summon_familiar"]
+      },
+      {
+        "level": 2,
+        "bab": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "spells_per_day": [4, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        "features": []
+      }
+    ],
+    "spellcasting_progression": "major"
+  },
+  "spellcasting": {
+    "type": "prepared",
+    "ability": "intelligence",
+    "spell_list": "wizard",
+    "spellbook_required": true,
+    "cantrips_known": "all"
+  },
+  "prerequisites": {}
+}
