@@ -1,14 +1,27 @@
-import { ChangeEvent, useCallback } from "react";
-import { LayoutDashboard, Hammer, ScrollText, Sword, Shield, BookOpen } from "lucide-react";
+import { ChangeEvent, useCallback, useState } from "react";
+import { LayoutDashboard, Hammer, ScrollText, Sword, Shield, BookOpen, Info } from "lucide-react";
 import BuilderWizard from "./components/Builder/BuilderWizard";
 import ItemCraftingCalculator from "./components/Crafting/ItemCraftingCalculator";
-import PrestigeTracker from "./components/Builder/PrestigeTracker";
+import CharacterSummary from "./components/Builder/CharacterSummary";
 import { useCharacterStore } from "./stores/characterStore";
 import { formatModifier } from "./lib/utils";
 
 const abilityOrder = ["str", "dex", "con", "int", "wis", "cha"] as const;
 
+const abilityDescriptions: Record<string, string> = {
+  str: "Strength measures muscle and physical power. Affects melee attack rolls and damage.",
+  dex: "Dexterity measures agility, reflexes, and balance. Affects AC, Reflex saves, and ranged attacks.",
+  con: "Constitution measures health and stamina. Affects HP and Fortitude saves.",
+  int: "Intelligence determines how well your character learns and reasons. Affects skill points and Wizard spells.",
+  wis: "Wisdom describes a character's willpower, common sense, perception, and intuition. Affects Will saves and Cleric/Druid spells.",
+  cha: "Charisma measures force of personality, persuasiveness, and leadership. Affects social skills and Sorcerer/Bard spells."
+};
+
+type View = "dashboard" | "sheet" | "crafting" | "compendium";
+
 export default function App() {
+  const [currentView, setCurrentView] = useState<View>("dashboard");
+  
   const abilities = useCharacterStore((state) => state.abilities);
   const setAbility = useCharacterStore((state) => state.setAbility);
   const getAbilityModifier = useCharacterStore((state) => state.getAbilityModifier);
@@ -36,22 +49,30 @@ export default function App() {
         </div>
 
         <nav className="space-y-2">
-          <div className="px-3 py-2 bg-accent/50 text-accent-foreground rounded-lg flex items-center gap-3 text-sm font-medium">
-            <LayoutDashboard size={16} />
-            Dashboard
-          </div>
-          <div className="px-3 py-2 text-muted-foreground hover:bg-accent/30 hover:text-foreground rounded-lg flex items-center gap-3 text-sm font-medium transition-colors cursor-pointer">
-            <ScrollText size={16} />
-            Character Sheet
-          </div>
-          <div className="px-3 py-2 text-muted-foreground hover:bg-accent/30 hover:text-foreground rounded-lg flex items-center gap-3 text-sm font-medium transition-colors cursor-pointer">
-            <Hammer size={16} />
-            Crafting
-          </div>
-          <div className="px-3 py-2 text-muted-foreground hover:bg-accent/30 hover:text-foreground rounded-lg flex items-center gap-3 text-sm font-medium transition-colors cursor-pointer">
-            <BookOpen size={16} />
-            Compendium
-          </div>
+          <NavButton 
+            active={currentView === "dashboard"} 
+            onClick={() => setCurrentView("dashboard")}
+            icon={<LayoutDashboard size={16} />} 
+            label="Dashboard" 
+          />
+          <NavButton 
+            active={currentView === "sheet"} 
+            onClick={() => setCurrentView("sheet")}
+            icon={<ScrollText size={16} />} 
+            label="Character Sheet" 
+          />
+          <NavButton 
+            active={currentView === "crafting"} 
+            onClick={() => setCurrentView("crafting")}
+            icon={<Hammer size={16} />} 
+            label="Crafting" 
+          />
+          <NavButton 
+            active={currentView === "compendium"} 
+            onClick={() => setCurrentView("compendium")}
+            icon={<BookOpen size={16} />} 
+            label="Compendium" 
+          />
         </nav>
 
         <div className="mt-auto pt-6 border-t border-border">
@@ -66,13 +87,21 @@ export default function App() {
       <main className="flex-1 p-8 overflow-y-auto">
         <div className="max-w-6xl mx-auto space-y-8">
           
-          {/* Top Bar Stats */}
+          {/* Top Bar Stats (Always Visible) */}
           <header className="grid grid-cols-1 md:grid-cols-6 gap-4">
             {abilityOrder.map((ability) => {
               const mod = getAbilityModifier(ability);
               return (
-                <div key={ability} className="bg-card border border-border rounded-xl p-4 flex flex-col items-center justify-center relative overflow-hidden group hover:border-primary/50 transition-colors">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div key={ability} className="group relative bg-card border border-border rounded-xl p-4 flex flex-col items-center justify-center overflow-visible hover:border-primary/50 transition-colors">
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                     <div className="group/tooltip relative">
+                        <Info size={12} className="text-muted-foreground hover:text-primary cursor-help" />
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-popover border border-border rounded-lg text-xs text-popover-foreground shadow-xl hidden group-hover/tooltip:block z-50 pointer-events-none">
+                          {abilityDescriptions[ability]}
+                        </div>
+                     </div>
+                  </div>
+                  
                   <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{ability}</span>
                   <div className="flex items-baseline gap-1">
                     <input
@@ -91,57 +120,75 @@ export default function App() {
             })}
           </header>
 
-          {/* Combat Summary */}
+          {/* Combat Summary (Always Visible) */}
           <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-card border border-border rounded-xl p-5 flex items-center gap-4">
-              <div className="h-10 w-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500">
-                <Sword size={20} />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground uppercase font-semibold">BAB</p>
-                <p className="text-2xl font-bold">+{totalBAB()}</p>
-              </div>
-            </div>
-            <div className="bg-card border border-border rounded-xl p-5 flex items-center gap-4">
-              <div className="h-10 w-10 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500">
-                <Shield size={20} />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground uppercase font-semibold">Fortitude</p>
-                <p className="text-2xl font-bold">+{getSave("fortitude")}</p>
-              </div>
-            </div>
-            <div className="bg-card border border-border rounded-xl p-5 flex items-center gap-4">
-              <div className="h-10 w-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-                <Shield size={20} />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground uppercase font-semibold">Reflex</p>
-                <p className="text-2xl font-bold">+{getSave("reflex")}</p>
-              </div>
-            </div>
-            <div className="bg-card border border-border rounded-xl p-5 flex items-center gap-4">
-              <div className="h-10 w-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
-                <Shield size={20} />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground uppercase font-semibold">Will</p>
-                <p className="text-2xl font-bold">+{getSave("will")}</p>
-              </div>
-            </div>
+            <StatCard icon={<Sword size={20} />} label="BAB" value={`+${totalBAB()}`} color="text-red-500" bg="bg-red-500/10" />
+            <StatCard icon={<Shield size={20} />} label="Fortitude" value={`+${getSave("fortitude")}`} color="text-orange-500" bg="bg-orange-500/10" />
+            <StatCard icon={<Shield size={20} />} label="Reflex" value={`+${getSave("reflex")}`} color="text-emerald-500" bg="bg-emerald-500/10" />
+            <StatCard icon={<Shield size={20} />} label="Will" value={`+${getSave("will")}`} color="text-blue-500" bg="bg-blue-500/10" />
           </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-8">
+          {/* Dynamic Content based on View */}
+          {currentView === "dashboard" && (
+            <div className="space-y-8 fade-in">
               <BuilderWizard />
-              <ItemCraftingCalculator />
+              <CharacterSummary />
             </div>
-            <div className="space-y-8">
-              <PrestigeTracker />
+          )}
+
+          {currentView === "sheet" && (
+             <div className="bg-card border border-border rounded-xl p-8 text-center text-muted-foreground">
+               <ScrollText size={48} className="mx-auto mb-4 opacity-20" />
+               <h3 className="text-lg font-medium text-foreground">Character Sheet</h3>
+               <p>Full character sheet view coming soon...</p>
+             </div>
+          )}
+
+          {currentView === "crafting" && (
+            <div className="fade-in">
+               <ItemCraftingCalculator />
             </div>
-          </div>
+          )}
+
+          {currentView === "compendium" && (
+             <div className="bg-card border border-border rounded-xl p-8 text-center text-muted-foreground">
+               <BookOpen size={48} className="mx-auto mb-4 opacity-20" />
+               <h3 className="text-lg font-medium text-foreground">Compendium</h3>
+               <p>Searchable spells, feats, and items database coming soon...</p>
+             </div>
+          )}
         </div>
       </main>
+    </div>
+  );
+}
+
+function NavButton({ active, onClick, icon, label }: { active: boolean; onClick: () => void; icon: React.ReactNode; label: string }) {
+  return (
+    <button 
+      onClick={onClick}
+      className={`w-full px-3 py-2 rounded-lg flex items-center gap-3 text-sm font-medium transition-colors text-left
+        ${active 
+          ? "bg-accent/50 text-accent-foreground" 
+          : "text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+        }`}
+    >
+      {icon}
+      {label}
+    </button>
+  );
+}
+
+function StatCard({ icon, label, value, color, bg }: { icon: React.ReactNode; label: string; value: string; color: string; bg: string }) {
+  return (
+    <div className="bg-card border border-border rounded-xl p-5 flex items-center gap-4 hover:border-primary/30 transition-colors">
+      <div className={`h-10 w-10 rounded-full ${bg} flex items-center justify-center ${color}`}>
+        {icon}
+      </div>
+      <div>
+        <p className="text-xs text-muted-foreground uppercase font-semibold">{label}</p>
+        <p className="text-2xl font-bold">{value}</p>
+      </div>
     </div>
   );
 }

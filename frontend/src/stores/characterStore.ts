@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
+import { persist } from "zustand/middleware";
 
 type AbilityKey = "str" | "dex" | "con" | "int" | "wis" | "cha";
 
@@ -16,6 +17,8 @@ type EquipmentEntry = {
 type ClassData = {
   id: string;
   name: string;
+  hitDie: number;
+  skillPointsPerLevel: number;
   progression: {
     bab: number;
     saves: {
@@ -23,6 +26,10 @@ type ClassData = {
       reflex: number;
       will: number;
     };
+    levels?: Array<{
+      level: number;
+      features?: string[];
+    }>;
   };
 };
 
@@ -30,49 +37,80 @@ const classDefinitions: Record<string, ClassData> = {
   wizard: {
     id: "wizard",
     name: "Wizard",
+    hitDie: 4,
+    skillPointsPerLevel: 2,
     progression: {
       bab: 0.5,
       saves: {
         fortitude: 0,
         reflex: 0,
         will: 2
-      }
+      },
+      levels: [
+        { level: 1, features: ["scribe_scroll", "summon_familiar"] },
+        { level: 2, features: [] },
+        { level: 3, features: [] },
+        { level: 4, features: [] },
+        { level: 5, features: ["bonus_feat"] }
+      ]
     }
   },
   fighter: {
     id: "fighter",
     name: "Fighter",
+    hitDie: 10,
+    skillPointsPerLevel: 2,
     progression: {
       bab: 1,
       saves: {
         fortitude: 2,
         reflex: 0,
         will: 0
-      }
+      },
+      levels: [
+        { level: 1, features: ["bonus_feat"] },
+        { level: 2, features: ["bonus_feat"] },
+        { level: 3, features: [] },
+        { level: 4, features: ["bonus_feat"] }
+      ]
     }
   },
   paladin: {
     id: "paladin",
     name: "Paladin",
+    hitDie: 10,
+    skillPointsPerLevel: 2,
     progression: {
       bab: 1,
       saves: {
         fortitude: 2,
         reflex: 0,
         will: 0
-      }
+      },
+      levels: [
+        { level: 1, features: ["detect_evil", "smite_evil_1_per_day"] },
+        { level: 2, features: ["divine_grace", "lay_on_hands"] },
+        { level: 3, features: ["divine_health"] }
+      ]
     }
   },
   abjurant_champion: {
     id: "abjurant_champion",
     name: "Abjurant Champion",
+    hitDie: 10,
+    skillPointsPerLevel: 2,
     progression: {
       bab: 1,
       saves: {
         fortitude: 2,
         reflex: 0,
         will: 1
-      }
+      },
+      levels: [
+        { level: 1, features: ["abjurant_armor", "extended_abjuration"] },
+        { level: 2, features: ["swift_abjuration"] },
+        { level: 3, features: ["martial_arcanist"] }
+      ]
     }
   }
 };
@@ -103,7 +141,8 @@ const calculateBAB = (progression: ClassData["progression"], levels: number) => 
 };
 
 export const useCharacterStore = create<CharacterState>()(
-  immer((set, get) => ({
+  persist(
+    immer((set, get) => ({
     abilities: {
       str: 10,
       dex: 10,
@@ -178,5 +217,10 @@ export const useCharacterStore = create<CharacterState>()(
       set((draft) => {
         draft.equipment = draft.equipment.filter((entry) => entry.id !== id);
       })
-  }))
+  })),
+    {
+      name: "dnd-character-storage",
+      version: 1,
+    }
+  )
 );
