@@ -1,5 +1,5 @@
 import { ChangeEvent, useCallback, useState } from "react";
-import { LayoutDashboard, Hammer, ScrollText, Sword, Shield, BookOpen, Info } from "lucide-react";
+import { LayoutDashboard, Hammer, ScrollText, Sword, Shield, BookOpen, Info, Plus, Minus } from "lucide-react";
 import BuilderWizard from "./components/Builder/BuilderWizard";
 import ItemCraftingCalculator from "./components/Crafting/ItemCraftingCalculator";
 import CharacterSummary from "./components/Builder/CharacterSummary";
@@ -88,31 +88,53 @@ export default function App() {
         <div className="max-w-6xl mx-auto space-y-8">
           
           {/* Top Bar Stats (Always Visible) */}
-          <header className="grid grid-cols-1 md:grid-cols-6 gap-4">
+          <header className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {abilityOrder.map((ability) => {
               const mod = getAbilityModifier(ability);
+              const currentValue = abilities[ability];
               return (
-                <div key={ability} className="group relative bg-card border border-border rounded-xl p-4 flex flex-col items-center justify-center overflow-visible hover:border-primary/50 transition-colors">
+                <div key={ability} className="group relative bg-gradient-to-br from-card to-muted/30 border-2 border-border rounded-xl p-4 flex flex-col items-center justify-center hover:border-primary/50 hover:shadow-lg transition-all">
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                      <div className="group/tooltip relative">
-                        <Info size={12} className="text-muted-foreground hover:text-primary cursor-help" />
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-popover border border-border rounded-lg text-xs text-popover-foreground shadow-xl hidden group-hover/tooltip:block z-50 pointer-events-none">
-                          {abilityDescriptions[ability]}
+                        <Info size={14} className="text-muted-foreground hover:text-primary cursor-help" />
+                        <div className="absolute bottom-full right-0 mb-2 w-56 p-3 bg-popover border border-border rounded-lg text-xs text-popover-foreground shadow-xl hidden group-hover/tooltip:block z-50 pointer-events-none">
+                          <p className="font-semibold mb-1">{ability.toUpperCase()}</p>
+                          <p className="text-muted-foreground">{abilityDescriptions[ability]}</p>
                         </div>
                      </div>
                   </div>
                   
-                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{ability}</span>
-                  <div className="flex items-baseline gap-1">
-                    <input
-                      className="w-12 text-center bg-transparent text-2xl font-bold focus:outline-none border-b border-dashed border-border focus:border-primary p-0"
-                      name={ability}
-                      type="number"
-                      value={abilities[ability]}
-                      onChange={handleChange}
-                    />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 mb-3">{ability}</span>
+                  
+                  {/* Score Display */}
+                  <div className="text-4xl font-bold text-foreground mb-3 tabular-nums">
+                    {currentValue}
                   </div>
-                  <div className={`text-sm font-medium mt-1 ${mod >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  
+                  {/* Increment/Decrement Buttons */}
+                  <div className="flex gap-2 mb-3 w-full">
+                    <button
+                      onClick={() => setAbility(ability, Math.max(1, currentValue - 1))}
+                      className="flex-1 bg-muted hover:bg-destructive/20 hover:text-destructive border border-border hover:border-destructive/50 rounded-lg p-2 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                      disabled={currentValue <= 1}
+                    >
+                      <Minus size={14} className="mx-auto" />
+                    </button>
+                    <button
+                      onClick={() => setAbility(ability, Math.min(30, currentValue + 1))}
+                      className="flex-1 bg-muted hover:bg-primary/20 hover:text-primary border border-border hover:border-primary/50 rounded-lg p-2 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                      disabled={currentValue >= 30}
+                    >
+                      <Plus size={14} className="mx-auto" />
+                    </button>
+                  </div>
+                  
+                  {/* Modifier */}
+                  <div className={`text-base font-bold px-3 py-1 rounded-lg ${
+                    mod >= 0 
+                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
+                      : 'bg-red-500/20 text-red-400 border border-red-500/30'
+                  }`}>
                     {formatModifier(mod)}
                   </div>
                 </div>

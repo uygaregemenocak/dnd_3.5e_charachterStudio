@@ -1,75 +1,214 @@
 Character Name: L
-Class: Wizard
-Level: 18
+Class: Barbarian(Lion Totem) 1 / Duskblade 3/Wizard 1/Fighter 1 / Abjurant Champion 5/ Swift Blade 10/ DragonSlayer 1/WarMage 1
+Level: 23
 
-Race: _______________________
-Alignment: _______________________
+Race: Human
+Alignment: Chaotic Neatural
+Size: Large
 
 Ability Scores:
-- Strength: ____
-- Dexterity: ____
-- Constitution: ____
-- Intelligence: ____
-- Wisdom: ____
-- Charisma: ____
+- Strength: 18+10+5=37
+- Dexterity: 17+10+5=32
+- Constitution: 16+10+5=33
+- Intelligence: 18+10+5+5=39
+- Wisdom: 10+10+5=25
+- Charisma: 6+10+5 = 21
 
-Hit Points: ____
-Armor Class: ____
-Initiative: ____
-Speed: ____
+BAB: 22
+
+Hit Points: 360
+Armor Class: 22+9+13+5+5+2+4+1=60
+Initiative: +21
+Speed: 30+10+20=60
 
 Saving Throws:
-- Fortitude: ____
-- Reflex: ____
-- Will: ____
+- Fortitude: +3+1+2+3+2+2+0+10=31
+- Reflex: +7+1+0+1+0+0+0+10=30
+- Will: +7+4+0+3+0+2+2+2+10=37
 
 Skills:
-- Concentration: ____
-- Spellcraft: ____
-- Knowledge (Arcana): ____
-- Knowledge (____): ____
-- Knowledge (____): ____
-- Knowledge (____): ____
+- Concentration: 26
+- Spellcraft: 26
+- Knowledge (Arcana): 26
+- Tumble: 26
+- Jump: 26
+- Diplomacy: 26
+- Intimidate: 26
+- Listen: 26
+- Spot: 26
+- Balance: 26
+- Knowledge: 10
 
 Feats:
-- _______________
-- _______________
-- _______________
+- Pounce: Charge, it can follow with a full attack
+- Dodge : +1 AC
+- Mobility : +4 AC for oppurtinity
+- Combat Casting: +4 Concentration 
+- Power Attack: -BAB + Damage 2X
+- Battle Jump: 5 feat x2 damage
+- Leap Attack: x2 power attack when charge
+- Spring Attack: Move before and after the attack 
+- Bounding Assult: +1 Attack 2 enemy varken 
+- Power Lunge: 2X str bonus to damage
+- Arcane Strike +spell level spell level x d4 damage
+- Travel Devotion: For Charge damage every Attack
+- Heightened Spell:
+- Netherese Battle Curse: +spell level + spell level to damage
+- Improved Spell Capacity:
+- Iron Will: 
+
+Class Skills:
+- Whirling Frenzy: +4 bonus to Strength and a +2 dodge bonus to Armor Class and on Reflex saves. +1 attack highest bab also usable for attack of oppurtinity
+- Arcane Attunement: Dancing lights, detect magic, flare, ghost sound, and read magic a combined total of times per day equal to 3 + your Int modifier.
+- Armored Mage: Avoid arcane spell failure so long as you stick to light armor and light shields.
+- Arcane Channeling: Cast any touch spell you know and deliver the spell through your weapon with a melee attack.
+- Abjurant Armor: +5 AC
+- Extended Abjuration: Double the duration of abjuration spells you cast
+- Swift Abjuration: You can cast abjuration spells as a swift action
+- Arcane Boost: 1 round.
+                Bonus on attack rolls equal to the spell's level.
+                Bonus on weapon damage rolls equal to twice the spell's level.
+                Bonus to AC equal to the spell's level.
+                Bonus on saving throws equal to the spell's level.
+                Resistance to acid, cold, electricity, fire, and sonic equal to 5 × the spell's level.
+- Martial Arcanist: Wizard level = BAB
+- Eiditic Spellcaster: No spellbook.
+- Swift Surge : +2 attack rolls +2 AC +20 mov +2d6 damage
+- Blurred Alacrity: %50 miss chance concealment
+- Sudden Casting : free action
+- Arcane Reflexes: + int to Initiative
+- Evasive Celerity: %50 spell miss chance
+- Fortified Hustle: Cannot dispelled
+- Diligent Rapidity: Freedom of movement effect
+- Perpetual Options: one extra move action or 1 extra attack
+- Innervated Speed: time stop
+- Aura of Courage: Immune to Fear
+- Damage bonus: +level to damage for dragons
+- Warmage Edge: +INT bonus to damage
 
 Spells Per Day:
-- Level 0: ____
-- Level 1: ____
-- Level 2: ____
-- Level 3: ____
-- Level 4: ____
-- Level 5: ____
-- Level 6: ____
-- Level 7: ____
-- Level 8: ____
-- Level 9: ____
+- Level 0: 4
+- Level 1: 7
+- Level 2: 7
+- Level 3: 7
+- Level 4: 7
+- Level 5: 6
+- Level 6: 6
+- Level 7: 6
+- Level 8: 6
+- Level 9: 5
+- Level 10: 2
 
 Spellbook:
-- Level 0: _______________
-- Level 1: _______________
-- Level 2: _______________
-- Level 3: _______________
-- Level 4: _______________
-- Level 5: _______________
-- Level 6: _______________
-- Level 7: _______________
-- Level 8: _______________
-- Level 9: _______________
+- Level 0: 
+            Dancing lights:
+            Detect magic:
+            Flare:
+            Ghost Sound:
+            Read Magic:
+            Mage Hand:
+            Resistance:
+            Prestidigitation:
+- Level 1: 
+            Enlarge Person
+            Shocking Grasp
+            True Strike
+            Protection from Evil
+            shield
+            Magic Armor
+            Feather Fall
+            Unseen Servant
+- Level 2: 
+            Bull
+            Cat
+            Fox
+            Mirror Image
+            Snake's Swiftness
+            Alter Self            
+            Invisibility
+            WraithStrike
+- Level 3: 
+            Haste
+            Vampiric Touch
+            Greater Mighty Wallop
+            Protection from Energy
+            Dispel Magic
+            Fly
+            Blink
+            Tongues
+            Dimension Step
+            Devil's Eye 
+- Level 4: 
+            Greater Mirror Image:
+            Stoneskin
+            Slashing Dispel
+            Polymorph
+            Heart of Earth
+            Celerity
+            Dimension Door
+            Enervation
+            Ice shield: 15 damage reduction
+            Orb of Force
+            Arcane Eye
+            Scrying
+- Level 5: 
+            Draconic Might
+            Heart of Fire
+            Wall of Force
+            Teleport
+            Sonic Shield:
+            Dominate Person
+            Sending
+            Permenancy
+- Level 6: 
+            Antimagic Field 
+            Dispell Magic Greater
+            Globe of Invulnerability
+            Geas
+            Contingency
+            Starmantle
+            Quickshift
+            Starmantle
+- Level 7: 
+            Instant Summons
+            Teleport Greater
+            Simulacrum
+            Energy Immunity
+            Truename Binding
+            Limited Wish
+            Force Cage
+- Level 8: 
+            Mind Blank
+            Prismatic wall
+            Celerity Greater
+            Moment of Prescience
+            Clone
+            PlaneShift Greater
+- Level 9: 
+            Wish
+            Shapechange
+            Gate
+            Mage's Disjunction
+            Foresight
 
 Equipment:
-- _______________
-- _______________
-- _______________
+- SILAH: +5 / Valorous(x2 charge)/Collision(+5 damage)/Wrathful Healing(1/2 heal)/Transmuting(DR kaldırma)/Shattermantle(SR -2)/Warning(+5 Initiative)/Spellblade(Greater Dispell Magic)/Parrying(+1 AC Saves)/Sizing
+- Belt of Magnificence +10
+- Ring of Protection +10
+- Cloak of Resistance +10
+- Ring of Solar Wings
+- Strongarm Bracers
+- 
+Effects:
+        Haste:
 
-Background:
-____________________________________________________________________________________
+Attack:
 
-Personality Traits:
-____________________________________________________________________________________
-
-Appearance:
-____________________________________________________________________________________
+Permenancies:
+    Arcane Sight:
+    Comprehend Languages
+    Dark Vision
+    Detect Magic
+    Read Magic
+    See Invisibility
+    Tongues
