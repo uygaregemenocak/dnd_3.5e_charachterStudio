@@ -1,43 +1,43 @@
 Character Name: Inkishush Ashi-Qurud Xisuthros Yamquzzuhalamma Anu
-Class: Barbarian(Lion Totem) 1 / Duskblade 3/Wizard 1/Fighter 1 / Abjurant Champion 5/ Swift Blade 10/ DragonSlayer 1/WarMage 1
-Level: 23
+Class: Barbarian(Lion Totem) 1 / Duskblade 3/Wizard 1/Eldritch Knight 1 / Abjurant Champion 5/ Swift Blade 10/ DragonSlayer 1/WarMage 1/Eldritch Knight 3
+Level: 26
 
 Race: Human
 Alignment: Chaotic Neatural
 Size: Large
 
 Ability Scores:
-- Strength: 18+10+5=37
-- Dexterity: 17+10+5=32
-- Constitution: 16+10+5=33
-- Intelligence: 18+10+5+5=39
+- Strength: 18+6+4+5=37
+- Dexterity: 17+6+4+5=32
+- Constitution: 16+6+4+5=33
+- Intelligence: 18+10+6+5=40
 - Wisdom: 10+10+5=25
 - Charisma: 6+10+5 = 21
 
-BAB: 22
+BAB: 25
 
-Hit Points: 360
-Armor Class: 22+9+13+5+5+2+4+1=60
-Initiative: +21
+Hit Points: 493/441
+Armor Class: 22+9+13+5+5+2+4+1+1=61
+Initiative: +31
 Speed: 30+10+20=60
 
 Saving Throws:
 - Fortitude: +3+1+2+3+2+2+0+10=31
 - Reflex: +7+1+0+1+0+0+0+10=30
-- Will: +7+4+0+3+0+2+2+2+10=37
+- Will: +7+4+0+3+0+2+2+2+10+2=39
 
 Skills:
-- Concentration: 26
-- Spellcraft: 26
-- Knowledge (Arcana): 26
-- Tumble: 26
-- Jump: 26
-- Diplomacy: 26
-- Intimidate: 26
-- Listen: 26
-- Spot: 26
-- Balance: 26
-- Knowledge: 10
+- Concentration: 29
+- Spellcraft: 29
+- Knowledge (Arcana): 29
+- Tumble: 29+20
+- Jump: 29+20
+- Diplomacy: 29
+- Intimidate: 29
+- Listen: 29
+- Spot: 29
+- Balance: 29
+- Knowledge(planes): 10
 
 Feats:
 - Pounce: Charge, it can follow with a full attack
@@ -56,6 +56,12 @@ Feats:
 - Netherese Battle Curse: +spell level + spell level to damage
 - Improved Spell Capacity:
 - Iron Will: 
+- Shaky: -2 ranged attacks
+- Robilar's Gambit: attack of oppurtinity when attacked
+- Inattentive: -4 spot listen
+- Knowledge Devotion: +5 insight damage 
+- Epic Spellcasting:
+- Heroic Destiny: +1d6 to any roll
 
 Class Skills:
 - Whirling Frenzy: +4 bonus to Strength and a +2 dodge bonus to Armor Class and on Reflex saves. +1 attack highest bab also usable for attack of oppurtinity
@@ -96,7 +102,7 @@ Spells Per Day:
 - Level 6: 6
 - Level 7: 6
 - Level 8: 6
-- Level 9: 5
+- Level 9: 6
 - Level 10: 2
 
 Spellbook:
@@ -118,6 +124,7 @@ Spellbook:
             Magic Armor
             Feather Fall
             Unseen Servant
+            Rhino's Rush
 - Level 2: 
             Bull
             Cat
@@ -141,9 +148,7 @@ Spellbook:
 - Level 4: 
             Greater Mirror Image:
             Stoneskin
-            Slashing Dispel
             Polymorph
-            Heart of Earth
             Celerity
             Dimension Door
             Enervation
@@ -151,6 +156,7 @@ Spellbook:
             Orb of Force
             Arcane Eye
             Scrying
+            Greater Luminous Armor
 - Level 5: 
             Draconic Might
             Heart of Fire
@@ -192,18 +198,33 @@ Spellbook:
             Foresight
 
 Equipment:
-- SILAH: +5 / Valorous(x2 charge)/Collision(+5 damage)/Wrathful Healing(1/2 heal)/Transmuting(DR kaldırma)/Shattermantle(SR -2)/Warning(+5 Initiative)/Spellblade(Greater Dispell Magic)/Parrying(+1 AC Saves)/Sizing
-- Belt of Magnificence +10
-- Ring of Protection +10
-- Cloak of Resistance +10
+- Heirloom of Unthalass: +5 / Valorous(x2 charge)/Collision(+5 damage)/Wrathful Healing(1/2 heal)/Transmuting(DR kaldırma)/Shattermantle(SR -2)/Warning(+5 Initiative)/Spellblade(Greater Dispell Magic)/Parrying(+1 AC Saves)/Sizing
+- Belt of Magnificence +6
+- Ring of Protection +6
+- Cloak of Resistance +6
 - Ring of Solar Wings
 - Strongarm Bracers
-- 
+- Third Eye Conceal
+- Gauntlet of Favor of the Martyr 
+- Hathran Mask of True Seeing
+- Greater Vest of Fortification
+- Rob of Archmagi
+- Boots of Swiftness
+
 Effects:
         Haste:
+                AC REF save attack rolls +2 , +2d6 damage
+                Miss chance %50 Concealment physical and magic
+                Can't be dispelled EX Ability
+                Freedoom of movement
+                +2 Attack
+                Time stop (6 level) 
+                Immunity to dazed, exhausted, fatigued, nauseated, sickened, staggered, or stunned Can be conscious at -1 to -9 hit points and can take a single action each round while in that state
+
 
 Attack:
-
+        +60 / +55 / +50 / +45 / +60 (Frenzy) / +60 (Swiftblade) / +55 (Haste)
+        ((3d6 )x2(rhino's rush))x2()
 Permenancies:
     Arcane Sight:
     Comprehend Languages
